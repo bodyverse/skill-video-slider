@@ -63,7 +63,7 @@ function App() {
           playsInline
           key={currentVideo}
         >
-          <source src={`/videos/${currentVideo}`} type="video/mp4" />
+          <source src={`${process.env.PUBLIC_URL}/videos/${currentVideo}`} type="video/mp4" />
         </video>
 
         {!showOverview && (
