@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/skill-video-slider/static/css/main.cc753bb9.css",
+    "main.js": "/skill-video-slider/static/js/main.e5d2cac0.js",
+    "static/js/550.de0368e7.chunk.js": "/skill-video-slider/static/js/550.de0368e7.chunk.js",
+    "index.html": "/skill-video-slider/index.html",
+    "main.cc753bb9.css.map": "/skill-video-slider/static/css/main.cc753bb9.css.map",
+    "main.e5d2cac0.js.map": "/skill-video-slider/static/js/main.e5d2cac0.js.map",
+    "550.de0368e7.chunk.js.map": "/skill-video-slider/static/js/550.de0368e7.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.cc753bb9.css",
+    "static/js/main.e5d2cac0.js"
+  ]
+}
