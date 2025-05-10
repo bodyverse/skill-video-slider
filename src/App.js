@@ -55,7 +55,7 @@ function App() {
     <div className="container">
       <div className="video-wrapper" onClick={togglePlay}>
         <video
-          className="video-bg"
+          className={`video-bg ${showOverview ? 'all-bodies' : ''}`}
           ref={videoRef}
           autoPlay
           loop
@@ -68,8 +68,8 @@ function App() {
 
         {!showOverview && (
           <>
-            <div className="overlay top-left">100%</div>
-            <div className={`overlay top-right ${isDragging ? 'highlight' : ''}`}>
+            <div className="overlay-text top-left">100%</div>
+            <div className={`overlay-text top-right ${isDragging ? 'highlight' : ''}`}>
               {sliderValue}%
             </div>
           </>
@@ -78,23 +78,35 @@ function App() {
 
       <div className="controls">
         {!showOverview && (
-          <input
-            type="range"
-            min="0"
-            max="100"
-            step="1"
-            value={sliderValue}
-            onChange={handleSliderChange}
-            onMouseDown={() => setIsDragging(true)}
-            onTouchStart={() => setIsDragging(true)}
-            onMouseUp={commitSliderChange}
-            onTouchEnd={commitSliderChange}
-            className="slider"
-          />
+          <div className="slider-wrapper">
+            <div className="overlay-text move-name-pos">Locking_01</div>
+            <div
+              className="slider-tooltip"
+              style={{ left: `${sliderValue + (4 * ((sliderValue - 50) / -100))}%` }}
+            >
+              {sliderValue}%
+            </div>
+            <input
+              type="range"
+              min="0"
+              max="100"
+              step="1"
+              value={sliderValue}
+              onChange={handleSliderChange}
+              onMouseDown={() => setIsDragging(true)}
+              onTouchStart={() => setIsDragging(true)}
+              onMouseUp={commitSliderChange}
+              onTouchEnd={commitSliderChange}
+              className="slider"
+              style={{ '--percent': `${sliderValue}%` }}
+            />
+            <button className="btn-all-bodies-pos" onClick={toggleMode}>All the Bodies</button>
+          </div>
         )}
-        <button onClick={toggleMode}>
-          {showOverview ? 'Skill' : 'Overview'}
-        </button>
+
+        {showOverview && (
+          <button onClick={toggleMode}>Slider</button>
+        )}
       </div>
     </div>
   );
