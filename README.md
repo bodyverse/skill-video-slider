@@ -1,70 +1,110 @@
-# Getting Started with Create React App
+# 📼 Skill Video Slider
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A clean React-based UI for comparing video performance at different skill levels using a slider. Uses `pnpm`, custom styling, and GitHub Pages deployment.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 📦 Getting Started
 
-### `npm start`
+### 1. Clone the repository
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```bash
+git clone https://github.com/bodyverse/skill-video-slider.git
+cd skill-video-slider
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 2. Install dependencies using pnpm
 
-### `npm test`
+If you don't have `pnpm` yet:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash
+npm install -g pnpm
+```
 
-### `npm run build`
+Then install project dependencies:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+pnpm install
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 🧪 Run Locally
 
-### `npm run eject`
+```bash
+pnpm start
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Open [http://localhost:3000](http://localhost:3000) to view in the browser.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 🚀 Deploy to GitHub Pages
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+1. Ensure the `homepage` field is set in `package.json`:
 
-## Learn More
+```json
+"homepage": "https://bodyverse.github.io/skill-video-slider"
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+2. Add the following deploy scripts to `package.json`:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```json
+"scripts": {
+  "start": "react-scripts start",
+  "build": "react-scripts build",
+  "predeploy": "pnpm run build",
+  "deploy": "gh-pages -d build"
+}
+```
 
-### Code Splitting
+3. Install the `gh-pages` dependency:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```bash
+pnpm add -D gh-pages
+```
 
-### Analyzing the Bundle Size
+4. Deploy:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```bash
+pnpm run deploy
+```
 
-### Making a Progressive Web App
+Then visit:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+👉 https://bodyverse.github.io/skill-video-slider
 
-### Advanced Configuration
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## 📁 File Structure
 
-### Deployment
+```
+public/
+  └── videos/
+        ├── Compare_000.mp4
+        ├── Compare_005.mp4
+        └── ...
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+src/
+  ├── App.js
+  ├── App.css
+  └── index.js
+```
 
-### `npm run build` fails to minify
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## ✨ Features
+
+- Responsive slider with tooltip and label overlays
+- Dynamic video switching per 5% skill interval
+- Toggle to “Overview” mode (e.g., Grid.mp4)
+- Full pnpm-based workflow with GitHub Pages deployment
+
+---
+
+## 🧩 Built With
+
+- React
+- pnpm
+- gh-pages
+- Custom CSS with `--color-*` variables
