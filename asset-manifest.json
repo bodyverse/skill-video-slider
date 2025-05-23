@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/skill-video-slider/static/css/main.60df57e2.css",
-    "main.js": "/skill-video-slider/static/js/main.24152aea.js",
+    "main.js": "/skill-video-slider/static/js/main.72832b60.js",
     "static/js/550.de0368e7.chunk.js": "/skill-video-slider/static/js/550.de0368e7.chunk.js",
     "index.html": "/skill-video-slider/index.html",
     "main.60df57e2.css.map": "/skill-video-slider/static/css/main.60df57e2.css.map",
-    "main.24152aea.js.map": "/skill-video-slider/static/js/main.24152aea.js.map",
+    "main.72832b60.js.map": "/skill-video-slider/static/js/main.72832b60.js.map",
     "550.de0368e7.chunk.js.map": "/skill-video-slider/static/js/550.de0368e7.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.60df57e2.css",
-    "static/js/main.24152aea.js"
+    "static/js/main.72832b60.js"
   ]
 }
