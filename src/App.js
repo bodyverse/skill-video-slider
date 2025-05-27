@@ -11,11 +11,29 @@ function App() {
   const videoRef = useRef(null);
 
   useEffect(() => {
-    if (!showOverview) {
-      const padded = String(committedValue).padStart(3, '0');
-      setCurrentVideo(`Compare_${padded}.mp4`);
+    const video = videoRef.current;
+    if (!video) return;
+
+    const newSrc = showOverview
+      ? `${process.env.PUBLIC_URL}/videos/Grid.mp4`
+      : `${process.env.PUBLIC_URL}/videos/Compare_${String(committedValue).padStart(3, '0')}.mp4`;
+
+    // Avoid unnecessary reloads
+    if (video.src !== newSrc) {
+      video.src = newSrc;
+      video.load();
+
+      // Autoplay once it's ready
+      const playWhenReady = () => {
+        video.play().catch((err) => {
+          console.warn('Autoplay failed:', err);
+        });
+      };
+
+      video.addEventListener('canplay', playWhenReady, { once: true });
     }
   }, [committedValue, showOverview]);
+
 
   const togglePlay = () => {
     const video = videoRef.current;
@@ -53,17 +71,17 @@ function App() {
 
   return (
     <div className="container">
-      <div className="video-wrapper" onClick={togglePlay}>
+      <div
+        className="video-wrapper"
+        onClick={togglePlay}
+      >
         <video
-          className={`video-bg ${showOverview ? 'all-bodies' : ''}`}
           ref={videoRef}
-          autoPlay
-          loop
           muted
+          loop
           playsInline
-          key={currentVideo}
+          className={`video-bg ${showOverview ? 'all-bodies' : ''}`}
         >
-          <source src={`${process.env.PUBLIC_URL}/videos/${currentVideo}`} type="video/mp4" />
         </video>
 
         {!showOverview && (
@@ -100,7 +118,7 @@ function App() {
               className="slider"
               style={{ '--percent': `${sliderValue}%` }}
             />
-            <button className="btn-all-bodies-pos" onClick={toggleMode}>All the Bodies</button>
+            <button className="btn-all-bodies-pos" onClick={toggleMode}>All</button>
           </div>
         )}
 
